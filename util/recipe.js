@@ -10,6 +10,7 @@ export async function getRecipe(id) {
   if (response.status !== 200)
     return null
   const data = await response.json()
+
   return data
 }
 
@@ -17,8 +18,11 @@ export async function searchRecipes(query) {
   // return mockSearchResults.results
 
   const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${process.env.API_KEY}&number=12`)
+
   if (response.status !== 200)
     return null
   const data = await response.json()
+
+
   return data.results
 }
